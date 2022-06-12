@@ -10,6 +10,7 @@ import {
 import DateTimePicker from './DateTimePicker';
 import Textfield from './TextField';
 import Button from './Button';
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -66,7 +67,19 @@ const useStyles = makeStyles((theme) => ({
               }}
               validationSchema={BOOKING_FORM_VALIDATION}
               onSubmit={values => {
-                console.log(values);
+                console.log(JSON.stringify(values, null, 2));
+                const bookingData = JSON.stringify(values, null, 2);
+                axios.post('http://localhost:8080/api/booking', bookingData, {
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                }
+                  )
+                  .then((response) => {
+                    console.log(response);
+                  }, (error) => {
+                    console.log(error);
+                  });
               }}
             >
               <Form>
@@ -75,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
 
                   <Grid item xs={12}>
                     <Typography>
-                      Your details
+                      Booking details
                     </Typography>
                   </Grid>
 
