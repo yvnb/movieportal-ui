@@ -1,23 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import MovieHomePage from './Containers/MovieHomePage';
+import ManageBookingPage from './Containers/ManageBookingPage';
+import { AppBar, Box, Button, Toolbar, Typography } from '@material-ui/core';
+import { Routes, Route, useNavigate} from'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home'; 
+import MovieDetailsPage from './Containers/MovieDetailsPage';
+import MovieBookingPage from './Containers/MovieBookingPage';
 
 function App() {
-  return (
+  let navigate = useNavigate();
+  function handleClick() {
+    navigate('/manageBooking');
+  };
+  function handleHomeIcon(){
+    navigate('/');
+  };
+  return (    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" style={{display:'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
+      <Toolbar style={{display:'flex', justifyContent:'center' }}>        
+
+        <Typography>
+           <HomeIcon onClick={(handleHomeIcon)}/> 
+        </Typography>
+          <Typography variant="h6" component="div" align="center">
+            Welcome to the ultimate movie booking portal. Explore now
+          </Typography>   
+         
+        </Toolbar>
+
+        <div style={{display:'flex', justifyContent:'flex-end' }}>
+          <Button color="inherit" onClick={(handleClick)}>Manage Booking</Button>
+        </div>
+        
+        </AppBar>
+      </Box>
+     
+        <Routes>
+          <Route path="/" element={<MovieHomePage />} />    
+          <Route path="/manageBooking" element={<ManageBookingPage />} />   
+          <Route path="/movie/*" element={<MovieDetailsPage />} /> 
+          <Route path="/booking/*" element={<MovieBookingPage />} />       
+        </Routes>
+     
+    
     </div>
   );
 }
