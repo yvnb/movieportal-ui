@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, ButtonBase, Grid, Paper, Rating } from "@mui/material";
+import { Box, Button, Grid, Paper, Rating } from "@mui/material";
 
 export function MovieDetailsComponent({ movieDetails }) {
   const Img = styled("img")({
