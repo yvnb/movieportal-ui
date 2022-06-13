@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import axios from 'axios'
+
 import { Alert } from '@mui/material';
 import { Grid } from '@mui/material';
 import MaterialTable from '@material-table/core';
+import { AxiosUtil as axios} from '../AxiosUtil';
 
 function validateEmail(email){
   // eslint-disable-next-line no-control-regex
@@ -41,7 +42,7 @@ export default function ManageBookingPage() {
   const [successMessages, setSuccessMessages] = useState([])
 
   useEffect(() => { 
-    axios.get(`http://localhost:8080/api/booking`) 
+    axios.get(`/api/booking`) 
         .then(res => {     
             let data = res.data;
             data = data.map(record => {
@@ -82,7 +83,7 @@ export default function ManageBookingPage() {
 
     if(errorList.length < 1){
       console.log("getting the booking id " + newData.id);  
-      axios.put("http://localhost:8080/api/booking/"+newData.id, newData)
+      axios.put("/api/booking/"+newData.id, newData)
       .then(res => {
         const dataUpdate = [...data];
         const index = oldData.tableData.id;

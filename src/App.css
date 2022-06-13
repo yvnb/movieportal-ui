@@ -29,6 +29,13 @@
   color: #61dafb;
 }
 
+.paper{
+    border: none;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    background-color: transparent !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

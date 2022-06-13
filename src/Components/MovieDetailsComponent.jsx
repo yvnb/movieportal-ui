@@ -30,6 +30,7 @@ export function MovieDetailsComponent({ movieDetails }) {
             backgroundColor: (theme) =>
               theme.palette.mode === "dark" ? "#1A2027" : "#fff",
           }}
+          className="paper"
         >
           <Grid container spacing={2}>
             <Grid item xs={12} sm container>
@@ -37,15 +38,15 @@ export function MovieDetailsComponent({ movieDetails }) {
                 <Grid item xs>
                   <Grid item>
                     <Box display="flex" justifyContent="flex-end">
-                      <ButtonBase sx={{ width: 64, height: 64 }}>
+                     
                         <Img
-                          alt="{movieDetails.backdrop_path} "
+                          alt={movieDetails.title}
                           src={
                             "https://image.tmdb.org/t/p/w500" +
                             movieDetails.poster_path
                           }
                         />
-                      </ButtonBase>
+                      
                     </Box>
                   </Grid>
                   <Typography gutterBottom variant="subtitle1" component="div">

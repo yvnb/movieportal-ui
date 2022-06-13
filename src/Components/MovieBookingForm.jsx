@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import DateTimePicker from "./DateTimePicker";
 import Textfield from "./TextField";
 import Button from "./Button";
-import axios from "axios";
+import { AxiosUtil as axios} from '../AxiosUtil';
 import { Alert, Container, Grid, Typography } from '@mui/material';
 
 export function MovieBookingForm({title}){
@@ -58,7 +58,7 @@ export function MovieBookingForm({title}){
                 console.log(JSON.stringify(values, null, 2));
                 const bookingData = JSON.stringify(values, null, 2);
                 axios
-                  .post("http://localhost:8080/api/booking", bookingData, {
+                  .post("/api/booking", bookingData, {
                     headers: {
                       "Content-Type": "application/json",
                     },

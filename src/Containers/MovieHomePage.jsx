@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import axios from "axios";
+import { AxiosUtil as axios} from '../AxiosUtil';
 import { MovieSearchComponent } from '../Components/MovieSearchComponent';
 import { MovieListComponent } from '../Components/MovieListComponent';
 
@@ -16,7 +16,7 @@ class MovieHomePage extends Component {
 
     handleKeyDown = (event) => {
         if (event.keyCode === 13) {
-            axios.get(`http://localhost:8080/api/movie/search`, { params: { query: this.state.searchValue }})        
+            axios.get(`/api/movie/search`, { params: { query: this.state.searchValue }})        
             .then(res => {
               const movieResults = res.data;
               this.setState({movieResults: movieResults})
@@ -31,7 +31,7 @@ class MovieHomePage extends Component {
 
     componentDidMount() {
        
-        axios.get(`http://localhost:8080/api/movie/featured`)        
+        axios.get(`/api/movie/featured`)        
         .then(res => {
           const movies = res.data;
           this.setState({movieResults: movies});

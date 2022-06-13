@@ -1,4 +1,4 @@
-import axios from "axios";
+import { AxiosUtil as axios} from '../AxiosUtil';
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { MovieDetailsComponent } from "../Components/MovieDetailsComponent";
@@ -11,11 +11,11 @@ export default function MovieDetailsPage() {
 
   useEffect(() => {
     const movieID = search.get("id");    
-    axios.get(`http://localhost:8080/api/movie/` + movieID).then((res) => {
+    axios.get(`/api/movie/` + movieID).then((res) => {
       const movie = res.data;      
       setMovieDetails(movie);
     });
-    axios.get(`http://localhost:8080/api/movie/${movieID}/reviews/`).then((res) => {
+    axios.get(`/api/movie/${movieID}/reviews/`).then((res) => {
       const reviews = res.data;   
       console.log(res.data);   
       setMovieReviews(reviews);      
