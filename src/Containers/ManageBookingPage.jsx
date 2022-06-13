@@ -85,9 +85,7 @@ export default function ManageBookingPage() {
       console.log("getting the booking id " + newData.id);  
       axios.put("/api/booking/"+newData.id, newData)
       .then(res => {
-        const dataUpdate = [...data];
-        const index = oldData.tableData.id;
-        dataUpdate[index] = newData;
+        const dataUpdate = [...data].map(record => record.id === newData.id ? newData :record);
         setData([...dataUpdate]);
         resolve()
         setIserror(false)
@@ -143,7 +141,7 @@ export default function ManageBookingPage() {
               editable={{
                 onRowUpdate: (newData, oldData) =>
                   new Promise((resolve) => {
-                      handleRowUpdate(newData, oldData, resolve);
+                    setTimeout( ()=> handleRowUpdate(newData, oldData, resolve), 1000);
                       
                   }),
               }}
