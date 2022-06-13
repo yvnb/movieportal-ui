@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
 import { useFormikContext } from 'formik';
+import { Button } from '@mui/material';
 
 const ButtonWrapper = ({
   children,

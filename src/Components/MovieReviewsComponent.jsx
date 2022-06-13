@@ -1,4 +1,5 @@
-import { Avatar, Box, Container, Grid, Paper } from "@material-ui/core";
+
+import { Avatar, Container, Grid, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 export function MovieReviewsComponent({reviews = []}){

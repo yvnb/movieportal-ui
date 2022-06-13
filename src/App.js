@@ -1,10 +1,11 @@
 import MovieHomePage from './Containers/MovieHomePage';
 import ManageBookingPage from './Containers/ManageBookingPage';
-import { AppBar, Box, Button, Toolbar, Typography } from '@material-ui/core';
+
 import { Routes, Route, useNavigate} from'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home'; 
 import MovieDetailsPage from './Containers/MovieDetailsPage';
 import MovieBookingPage from './Containers/MovieBookingPage';
+import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
 
 function App() {
   let navigate = useNavigate();

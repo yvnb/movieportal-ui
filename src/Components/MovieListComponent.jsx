@@ -1,5 +1,5 @@
 
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid } from "@mui/material";
 import { MovieComponent } from "./MovieComponent";
 
 export function MovieListComponent({movies = []}){

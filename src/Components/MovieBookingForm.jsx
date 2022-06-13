@@ -1,24 +1,11 @@
 import React, { useState} from 'react';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { makeStyles } from "@material-ui/core/styles";
-import { Container, Grid, Typography } from "@material-ui/core";
 import DateTimePicker from "./DateTimePicker";
 import Textfield from "./TextField";
 import Button from "./Button";
 import axios from "axios";
-import { Alert } from '@material-ui/lab';
-
-
-
-const useStyles = makeStyles((theme) => ({
-  formWrapper: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(8),
-  },
-}));
-
-
+import { Alert, Container, Grid, Typography } from '@mui/material';
 
 export function MovieBookingForm({title}){
 
@@ -48,7 +35,7 @@ export function MovieBookingForm({title}){
       .required("Required"),
     bookingDate: Yup.date().required("Required"),
   });
-  const classes = useStyles();
+  // const classes = useStyles();
     //for error handling
     const [iserror, setIserror] = useState(false)
     const [errorMessages, setErrorMessages] = useState([])
@@ -61,7 +48,7 @@ export function MovieBookingForm({title}){
     <Grid container>
       <Grid item xs={12}>
         <Container maxWidth="md">
-          <div className={classes.formWrapper}>
+          <div >
             <Formik
               initialValues={{
                 ...BOOKING_FORM_INITIAL_STATE,

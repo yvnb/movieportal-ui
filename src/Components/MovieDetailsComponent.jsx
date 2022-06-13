@@ -1,12 +1,9 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, CardHeader, Rating } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Box, Button, ButtonBase, Grid, Paper } from "@material-ui/core";
+
 import { useNavigate } from 'react-router-dom';
+import { Box, Button, ButtonBase, Grid, Paper, Rating } from "@mui/material";
 
 export function MovieDetailsComponent({ movieDetails }) {
   const Img = styled("img")({
