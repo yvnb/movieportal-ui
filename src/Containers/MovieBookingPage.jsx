@@ -1,4 +1,4 @@
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { MovieBookingForm } from "../Components/MovieBookingForm";
 
 export default function MovieBookingPage() {

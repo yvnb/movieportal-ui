@@ -22,7 +22,7 @@ export default function MovieDetailsPage() {
 
     });
 
-  }, []);
+  }, [search]);
 
   return ( 
     <div>
