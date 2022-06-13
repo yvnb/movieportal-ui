@@ -65,7 +65,7 @@ export default function ManageBookingPage() {
     {title: "Phone", field: "phone"},
     {title: "Seats", field: "seats"},
     {title: "Booking Date", field: "bookingDate"},
-    {title: "Booking Status", field: "bookingStatus"},
+    {title: "Booking Status", field: "bookingStatus", lookup: {'BOOKED':'BOOKED', 'CANCELLED':'CANCELLED'}}
     
   ]
   const [data, setData] = useState([]); //table data
@@ -80,8 +80,15 @@ export default function ManageBookingPage() {
 
   useEffect(() => { 
     axios.get(`http://localhost:8080/api/booking`) 
-        .then(res => {          
-            setData(res.data)
+        .then(res => {     
+            let data = res.data;
+            data = data.map(record => {
+              if (!record.bookingStatus) {
+                record.bookingStatus = 'BOOKED';
+              }
+              return record;
+            })
+            setData(data)
          })
          .catch(error=>{
           setErrorMessages(["Not Able to fetch Booking Details. Please try again later"])

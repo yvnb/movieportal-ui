@@ -117,7 +117,7 @@ export function MovieBookingForm({title}){
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Textfield name="movieName" label="Movie Title" />
+                    <Textfield name="movieName" label="Movie Title" disabled />
                   </Grid>
 
                   <Grid item xs={6}>
