@@ -16,7 +16,6 @@ export default function MovieDetailsPage() {
       setMovieDetails(movie);
     });
     axios.get(`http://localhost:8080/api/movie/${movieID}/reviews/`).then((res) => {
-      console.log('getting inside the movie reviews api');
       const reviews = res.data;   
       console.log(res.data);   
       setMovieReviews(reviews);      

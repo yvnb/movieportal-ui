@@ -6,7 +6,7 @@ const TextfieldWrapper = ({
   name,
   ...otherProps
 }) => {
-  const [field, mata] = useField(name);
+  const [field, meta] = useField(name);
 
   const configTextfield = {
     ...field,
@@ -15,9 +15,9 @@ const TextfieldWrapper = ({
     variant: 'outlined'
   };
 
-  if (mata && mata.touched && mata.error) {
+  if (meta && meta.touched && meta.error) {
     configTextfield.error = true;
-    configTextfield.helperText = mata.error;
+    configTextfield.helperText = meta.error;
   }
 
   return (

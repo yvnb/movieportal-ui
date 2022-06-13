@@ -18,33 +18,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const BOOKING_FORM_INITIAL_STATE = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  bookingDate: "",
-  seats: "",
-};
 
-const BOOKING_FORM_VALIDATION = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email.").required("Required"),
-  phone: Yup.number()
-    .integer()
-    .typeError("Please enter a valid phone number")
-    .required("Required"),
-  seats: Yup.number()
-    .integer()
-    .typeError("Please enter Valid Seats")
-    .min(1, "Min value 1")
-    .max(10, "Max value 10")
-    .required("Required"),
-  bookingDate: Yup.date().required("Required"),
-});
 
-export function MovieBookingForm(){
+export function MovieBookingForm({title}){
+
+  const BOOKING_FORM_INITIAL_STATE = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    bookingDate: "",
+    seats: "",
+    movieName:title
+  };
+  
+  const BOOKING_FORM_VALIDATION = Yup.object().shape({
+    firstName: Yup.string().required("Required"),
+    lastName: Yup.string().required("Required"),
+    email: Yup.string().email("Invalid email.").required("Required"),
+    phone: Yup.number()
+      .integer()
+      .typeError("Please enter a valid phone number")
+      .required("Required"),
+    seats: Yup.number()
+      .integer()
+      .typeError("Please enter Valid Seats")
+      .min(1, "Min value 1")
+      .max(10, "Max value 10")
+      .required("Required"),
+    bookingDate: Yup.date().required("Required"),
+  });
   const classes = useStyles();
     //for error handling
     const [iserror, setIserror] = useState(false)
@@ -111,6 +114,10 @@ export function MovieBookingForm(){
             }       
           </div>
                     <Typography>Booking details</Typography>
+                  </Grid>
+
+                  <Grid item xs={12}>
+                    <Textfield name="movieName" label="Movie Title" />
                   </Grid>
 
                   <Grid item xs={6}>

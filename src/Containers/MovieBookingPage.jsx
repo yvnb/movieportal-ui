@@ -1,15 +1,13 @@
-import { Form, Formik } from "formik";
-import * as Yup from "yup";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { MovieBookingForm } from "../Components/MovieBookingForm";
-import { TextField } from "../Components/TextField";
-
-
 
 export default function MovieBookingPage() {
-  
+const [search] = useSearchParams();
+const title = search.get("title");    
+
   return ( 
     <div>
-      <MovieBookingForm />
+      <MovieBookingForm title = {title}/>
     </div>
   );
 }

@@ -57,7 +57,8 @@ function isNumber(field){
 export default function ManageBookingPage() {
 
   var columns = [
-    {title: "id", field: "id", hidden: true},    
+    {title: "id", field: "id", hidden: true}, 
+    {title: "Movie Title", field: "movieName", editable: false},   
     {title: "First Name", field: "firstName"},
     {title: "Last Name", field: "lastName"},
     {title: "Email", field: "email"},

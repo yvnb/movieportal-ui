@@ -18,7 +18,8 @@ export function MovieDetailsComponent({ movieDetails }) {
 
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/booking?id=${movieDetails.id}`)
+  navigate(`/booking?title=${movieDetails.title}`) 
+    
 }
   return (
     <div>
@@ -71,9 +72,6 @@ export function MovieDetailsComponent({ movieDetails }) {
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     Release Date : {movieDetails.release_date}
-                  </Typography>
-                  <Typography variant="body2">
-                    Genre : {movieDetails.genres.length}
                   </Typography>
                   <Typography variant="body2">
                     <Button variant="contained" onClick={handleClick}>Book Now</Button>
